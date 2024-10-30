@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two-Part Layout</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+
+    }
+    .container-fluid {
+      display: flex;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .left-section {
+      background-image: url('../../../static/images/433684232_957912692351822_8679174350864845872_n.jpg'); /* replace with your image */
+      background-size: cover;
+      background-position: center;
+      width: 40%;
+      margin-left: -2%;
+    }
+    .right-section {
+      width: 62%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0%;
+     
+    
+   
+
+      background-image: url('../../../static/images/back_win.jpg');
+      background-size: cover;
+      background-position: center;
+    
+
+    }
+    .heading{
+
+        margin-top: 0%;
+        margin-bottom: 5%;
+        
+        background-color: white;
+        width: fit-content;
+        text-align: center;
+        border-radius: 15px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      
+
+    }
+
+    .heading_islu{
+      color: red;
+        font-size: 40px;
+        font-weight: bold;
+
+    }
+
+
+    .text-box {
+      width: 85%;
+      height: 300px;
+      margin-top: 20px;
+      border: 1px solid transparent;
+      
+      padding: 10px;
+      overflow-y: auto;
+      word-wrap: break-word;
+      background-color: white;
+      opacity: 90%;
+      border-radius: 15px;
+      box-shadow: 2px 2px 2px rgb(245, 5, 17);
+    
+ 
+    }
+    .textarea{
+        width: 700px;
+        background-color: aliceblue;
+        opacity: 75%;
+    }
+
+    .result{
+      color: red;
+      font-weight: bold;
+      opacity: 90%;
+      font-size: 25px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <!-- Left Section (40% width) -->
+  <div class="left-section"></div>
+  
+
+  <!-- Right Section (60% width) -->
+  <div class="right-section">
+
+    <h1 class="heading">
+      <span class="heading_islu">ISLAMABAD UNITED</span> <span class="fa fa-star checked" style="color: gold;"></span> <span class="heading_islu"> AWAIS SHAKEEL</span>
+    </h1>
+      
+      
+    <form action="" method="post">
+        {% csrf_token %}
+        <textarea class="form-control mb-3 textarea" rows="3" name="query" placeholder="Enter your text here..."></textarea>
+        <button class="btn btn-danger mb-3">Submit</button>
+    </form>
+    {% if response %}
+    <div class="text-box">
+       
+      <p class="result">{{response}} </p>
+   
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+</body>
+</html>
